@@ -17,3 +17,6 @@ make sure you already have this dependency on your machine
 - clone `git clone git@gitlab.com:prima101112/test-quiz.git`
 - run `go build`
 - run `./test-quiz`
+
+# Lets Do It
+- open the browser and `http://localhost:8000`
