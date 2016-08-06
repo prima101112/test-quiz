@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	m "test-app/models"
+	m "test-quiz/models"
 )
 
 func showQuestion(w http.ResponseWriter, r *http.Request) {

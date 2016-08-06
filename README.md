@@ -15,4 +15,5 @@ make sure you already have this dependency on your machine
 ### OR
 
 - clone `git clone git@gitlab.com:prima101112/test-quiz.git`
-- run `go run main.go`
+- run `go build`
+- run `./test-quiz`
