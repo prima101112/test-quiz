@@ -29,7 +29,7 @@ var DB *gorm.DB
 func init() {
 	if _, err := os.Stat("test.db"); os.IsNotExist(err) {
 		ConnectDB()
-		DB.LogMode(true)
+		// DB.LogMode(true)
 		// Migrate the schema
 		DB.CreateTable(&Question{})
 		DB.CreateTable(&Answer{})
@@ -75,5 +75,5 @@ func ConnectDB() {
 	if err != nil {
 		panic("failed to connect database")
 	}
-	DB.LogMode(true)
+	// DB.LogMode(true)
 }
