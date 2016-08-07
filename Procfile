@@ -1,1 +1,1 @@
-web: appswebcommand
+web: test-quiz
