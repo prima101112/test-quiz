@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	m "test-quiz/models"
 )
 
@@ -49,8 +50,8 @@ func main() {
 	http.Handle("/", http.FileServer(http.Dir("public")))
 	http.HandleFunc("/question", showQuestion)
 	http.HandleFunc("/answers", showAnswer)
-	log.Print("server run on port 8000")
-	err := http.ListenAndServe(":8000", nil)
+	log.Print("server run on port " + os.Getenv("PORT"))
+	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 	if err != nil {
 		log.Print(err)
 	}
