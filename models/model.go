@@ -40,17 +40,22 @@ func init() {
 
 		DB.NewRecord(q)
 		ans = []Answer{{FieldAnswer: "jawaban 1"}, {FieldAnswer: "jawaban 2"}, {FieldAnswer: "jawaban 3"}, {FieldAnswer: "jawaban 4"}}
-		q = Question{Question: "1. is this first question num?", Answers: ans}
+		q = Question{Question: "is this first question num?", Answers: ans}
 		DB.Save(&q)
 
 		DB.NewRecord(q)
 		ans = []Answer{{FieldAnswer: "jawaban satu"}, {FieldAnswer: "jawaban dua"}, {FieldAnswer: "jawaban tiga"}, {FieldAnswer: "jawaban lima"}}
-		q = Question{Question: "2. is this second question string?", Answers: ans}
+		q = Question{Question: "is this second question string?", Answers: ans}
 		DB.Save(&q)
 
 		DB.NewRecord(q)
 		ans = []Answer{{FieldAnswer: "8"}, {FieldAnswer: "9"}, {FieldAnswer: "10"}, {FieldAnswer: "11"}}
-		q = Question{Question: "3. how mane 3 + 5", Answers: ans}
+		q = Question{Question: "how mane 3 + 5", Answers: ans}
+		DB.Save(&q)
+
+		DB.NewRecord(q)
+		ans = []Answer{{FieldAnswer: "199"}, {FieldAnswer: "121"}, {FieldAnswer: "100"}, {FieldAnswer: "111"}}
+		q = Question{Question: "how mane 11 x 11", Answers: ans}
 		DB.Save(&q)
 
 		var ques []Question
