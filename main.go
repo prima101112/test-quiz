@@ -6,7 +6,8 @@ import (
 	"log"
 	"net/http"
 	"os"
-	m "test-quiz/models"
+
+	m "github.com/prima101112/test-quiz/models"
 )
 
 func showQuestion(w http.ResponseWriter, r *http.Request) {
@@ -15,6 +16,17 @@ func showQuestion(w http.ResponseWriter, r *http.Request) {
 	m.DB.Select("ID, question").Order("RANDOM()").Find(&qs)
 	GetRandomAns(&qs)
 	log.Print(qs)
+
+	//write json response
+	w.Header().Add("Content-Type", "application/json")
+	by, _ := json.Marshal(qs)
+	fmt.Fprintf(w, string(by))
+}
+
+func allQuestion(w http.ResponseWriter, r *http.Request) {
+	log.Print("enter show question function")
+	var qs m.Questions
+	m.DB.Select("ID, question").Order("RANDOM()").Find(&qs)
 
 	//write json response
 	w.Header().Add("Content-Type", "application/json")
@@ -49,6 +61,7 @@ func showAnswer(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.Handle("/", http.FileServer(http.Dir("public")))
 	http.HandleFunc("/question", showQuestion)
+	http.HandleFunc("/allquestion", allQuestion)
 	http.HandleFunc("/answers", showAnswer)
 	log.Print("server run on port " + os.Getenv("PORT"))
 	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
